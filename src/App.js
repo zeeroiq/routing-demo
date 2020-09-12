@@ -4,6 +4,7 @@ import Nav from "./Nav"
 import About from "./About"
 import Shop from "./Shop"
 import Home from "./Home"
+import ItemDetail from "./ItemDetail"
 
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom"
 function App() {
@@ -11,9 +12,12 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/shop" component={Shop} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/about" component={About} />
+          <Route exact path="/shop" component={Shop} />
+          <Route path="/shop/:id" component={ItemDetail} />
+        </Switch>
       </div>
     </Router>
   );
